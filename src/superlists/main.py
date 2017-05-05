@@ -19,5 +19,14 @@ def show_post(post_id):
     # show the post with the given id, the id is an integer
     return 'Post %d' % post_id
 
+@app.route('/projects')
+def projects():
+    return 'The projects page'
+
+@app.route('/about')
+def projects():
+    return 'The projects page'
+
+
 if __name__ == "__main__":
     app.run(debug=True)
