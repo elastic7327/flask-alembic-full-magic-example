@@ -1,5 +1,21 @@
+import os
 from flask import Flask, url_for, render_template, session, escape, request, redirect
+import sqlite3
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASE = os.path.join(BASE_DIR, '../../databases/db.sqlite3'),
+DEBUG = True
+SECRET_KEY = 'AMNAS@#(@#9===ASKDj)KAS=/ASDKK(@(#KDASDJKAAAL)@(I@#U))'
+
+USERNAME = 'admin'
+PASSWORD = 'incorrect'
+
 app = Flask(__name__)
+app.config.from_object(__name__)
+
+
+def connect_db():
+    return sqlite3.connect(app.config['DATABASE'])
 
 @app.route('/')
 def index():
@@ -29,7 +45,7 @@ def logout():
 @app.route('/hello')
 @app.route('/hello/<name>')
 def hello_world(name=None):
-    return render_template('superlists/hello.html', name=name)
+    return render_template('flaskr/hello.html', name=name)
 
 @app.route('/user/<username>')
 def profile(username):
@@ -55,8 +71,6 @@ def about():
 #    print url_for('login')
 #    print url_for('login', next='/')
 #    print url_for('profile', username='DANIEL KIM')
-
-app.secret_key = 'AMNAS@#(@#9===ASKDj)KAS=/ASDKK(@(#KDASDJKAAAL)@(I@#U))'
 
 if __name__ == "__main__":
     app.run(debug=True)
