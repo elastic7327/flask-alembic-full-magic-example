@@ -1,4 +1,5 @@
-# flask-alembic-full-magic-example( feat Sqlalchemy )
+# flask-alembic-full-magic-example(feat: Sqlalchemy)
+
 
 <p align="left">
   <img src="./.img/awesome.png" width="400"/>
