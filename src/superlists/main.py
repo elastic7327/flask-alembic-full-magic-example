@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,8 +13,9 @@ def login():
         show_the_login_form()
 
 @app.route('/hello')
-def hello_world():
-    return "Hello Flask"
+@app.route('/hello/<name>')
+def hello_world(name=None):
+    return render_template('superliss/hello.html', name=name)
 
 @app.route('/user/<username>')
 def profile(username):
