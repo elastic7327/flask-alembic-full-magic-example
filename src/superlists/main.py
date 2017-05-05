@@ -15,7 +15,7 @@ def login():
 @app.route('/hello')
 @app.route('/hello/<name>')
 def hello_world(name=None):
-    return render_template('superliss/hello.html', name=name)
+    return render_template('superlists/hello.html', name=name)
 
 @app.route('/user/<username>')
 def profile(username):
@@ -41,8 +41,6 @@ with app.test_request_context():
     print url_for('login')
     print url_for('login', next='/')
     print url_for('profile', username='DANIEL KIM')
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
