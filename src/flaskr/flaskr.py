@@ -12,10 +12,7 @@ PASSWORD = 'incorrect'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-
-
-def connect_db():
-    return sqlite3.connect(app.config['DATABASE'])
+db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
