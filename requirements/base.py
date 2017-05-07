@@ -19,3 +19,4 @@ singledispatch==3.4.0.3
 six==1.10.0
 Werkzeug==0.12.1
 wrapt==1.10.10
+
